@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_today"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="160dp"
         android:text="@string/dias_restantes_para_o_fim_do_ano" />
 
     <TextView
@@ -44,6 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="SIM/NÃO/Não confirmado" />
+        android:text="SIM/NÃO/Não confirmado"
+        android:id="@+id/button_confirm"/>
 
 </RelativeLayout>
