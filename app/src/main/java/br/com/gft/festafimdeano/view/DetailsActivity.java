@@ -11,7 +11,6 @@ import br.com.gft.festafimdeano.constant.FimDeAnoConstants;
 import br.com.gft.festafimdeano.data.SecurityPreferences;
 
 public class DetailsActivity extends AppCompatActivity implements View.OnClickListener {
-
     private ViewHolder mViewHolder = new ViewHolder();
     private SecurityPreferences mSecurityPreferences;
 
@@ -35,7 +34,6 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
             } else {
                 //SALVAR AUSENCIA
                 this.mSecurityPreferences.storeString(FimDeAnoConstants.PRESENCE_KEY, FimDeAnoConstants.CONFIRMATION_NO);
-
             }
         }
     }

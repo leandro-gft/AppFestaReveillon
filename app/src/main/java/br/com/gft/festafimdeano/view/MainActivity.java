@@ -12,16 +12,21 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import br.com.gft.festafimdeano.R;
+import br.com.gft.festafimdeano.constant.FimDeAnoConstants;
+import br.com.gft.festafimdeano.data.SecurityPreferences;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewHolder mViewHolder = new ViewHolder();
+    private SecurityPreferences mSecurityPreferences;
     private static SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.mSecurityPreferences = new SecurityPreferences(this);
+
 
         this.mViewHolder.textToday = findViewById(R.id.text_today);
         this.mViewHolder.textDaysLeft = findViewById(R.id.text_days_left);
@@ -35,6 +40,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.textDaysLeft.setText(daysLeft);
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.verifyPresence();
+    }
+
+    private void verifyPresence() {
+        //NAO CONFIRMADO, SIM OU NAO
+        String presence = this.mSecurityPreferences.getStoredString(FimDeAnoConstants.PRESENCE_KEY);
+        if (presence.equals("")){
+            this.mViewHolder.buttonConfirm.setText(getString(R.string.nao_confirmado));
+        } else if (presence.equals(FimDeAnoConstants.CONFIRMATION_YES)){
+            this.mViewHolder.buttonConfirm.setText(getString(R.string.sim));
+        } else {
+            this.mViewHolder.buttonConfirm.setText(getString(R.string.nao));
+        }
+   }
 
     @Override
     public void onClick(View v) {
