@@ -31,6 +31,8 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="@string/voce_vai_participar"
+        
         android:textSize="30sp"/>
+
 
 </RelativeLayout>
